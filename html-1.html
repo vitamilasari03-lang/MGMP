@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>E-Modul STEM Etnosains: Rahasia Api di Balik Gerabah</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f3ee;--sf:#fff;--ink:#1d2a29;--mut:#566866;--pri:#2f6b63;--pri-t:#fff;--acc:#b8862b;--acc-bg:#f7ecd3;--ok:#2d7a46;--ok-bg:#e0f1e5;--bad:#a8402b;--bad-bg:#f7e1db;--ln:#d5dbd5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141b1a;--sf:#1e2827;--ink:#e8eeea;--mut:#9fb1ad;--pri:#6cc0b3;--pri-t:#0f1a18;--acc:#e0b04f;--acc-bg:#352c16;--ok:#7fd49a;--ok-bg:#1c3326;--bad:#f0907a;--bad-bg:#3a1f19;--ln:#324240}}
+:root[data-theme="dark"]{--bg:#141b1a;--sf:#1e2827;--ink:#e8eeea;--mut:#9fb1ad;--pri:#6cc0b3;--pri-t:#0f1a18;--acc:#e0b04f;--acc-bg:#352c16;--ok:#7fd49a;--ok-bg:#1c3326;--bad:#f0907a;--bad-bg:#3a1f19;--ln:#324240}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Source Serif 4",Georgia,serif}
+h1,h2,h3,nav button{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.2}
+header{background:var(--pri);color:var(--pri-t);padding:28px 20px 22px}
+header .w,main,nav .w{max-width:860px;margin:0 auto}
+header h1{font-size:clamp(28px,6vw,46px);margin:0 0 8px}
+header p{margin:0;max-width:60ch;opacity:.95}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--sf);border-bottom:1px solid var(--ln);z-index:5}
+nav .w{display:flex;overflow-x:auto}
+nav button{flex:1;min-width:110px;padding:14px 10px;border:0;background:none;color:var(--mut);font-size:15px;font-weight:700;cursor:pointer;border-bottom:3px solid transparent}
+nav button[aria-selected=true]{color:var(--pri);border-color:var(--acc)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{padding:22px 16px 90px}
+section{display:none}section.on{display:block}
+h2{font-size:28px;margin:6px 0 12px}h3{font-size:20px;margin:0 0 8px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:18px;margin:0 0 16px}
+.id{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.id div{background:var(--acc-bg);border-radius:8px;padding:10px 12px;font-size:15px}
+.id b{display:block;font-family:"Bricolage Grotesque",sans-serif}
+.quote{border-left:5px solid var(--acc);padding:4px 16px;font-size:19px;font-style:italic}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.map div{border:2px solid var(--pri);border-radius:8px;padding:8px 10px;font-size:15px}
+.map div.c{background:var(--pri);color:var(--pri-t);grid-column:1/-1;text-align:center;font-weight:600}
+.ai{background:var(--acc-bg);border:1px dashed var(--acc);border-radius:10px;padding:14px;margin:12px 0}
+.ai h3{font-size:17px}
+.tag{display:inline-block;background:var(--pri);color:var(--pri-t);font:700 13px "Bricolage Grotesque",sans-serif;padding:2px 10px;border-radius:99px;margin-bottom:6px}
+.btn{background:var(--pri);color:var(--pri-t);border:0;border-radius:8px;padding:10px 16px;font:700 15px "Bricolage Grotesque",sans-serif;cursor:pointer;margin:4px 6px 4px 0}
+.btn.ghost{background:none;color:var(--pri);border:2px solid var(--pri)}
+input[type=text],textarea{width:100%;padding:10px;border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink);font:inherit}
+label.o{display:block;padding:9px 12px;border:1px solid var(--ln);border-radius:8px;margin:6px 0;cursor:pointer}
+label.o:has(input:checked){border-color:var(--pri);background:var(--acc-bg)}
+.fb{margin-top:10px;padding:12px;border-radius:8px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-bg)}.fb.no{background:var(--bad-bg)}
+.hint{background:var(--sf);border-left:4px solid var(--acc);padding:8px 12px;margin:8px 0;border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--ln);padding:8px;text-align:left;vertical-align:top}th{background:var(--acc-bg)}
+.sc{overflow-x:auto}
+code{background:var(--acc-bg);padding:1px 6px;border-radius:4px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{border:1px solid var(--pri);background:none;color:var(--pri);border-radius:99px;padding:6px 14px;font:700 14px "Bricolage Grotesque",sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--pri);color:var(--pri-t)}
+.sub{display:none}.sub.on{display:block}
+#fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;background:var(--acc);color:#1d1a10;border:0;border-radius:99px;padding:12px 18px;font:700 15px "Bricolage Grotesque",sans-serif;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+#chat{position:fixed;right:12px;left:12px;max-width:380px;margin-left:auto;bottom:calc(70px + env(safe-area-inset-bottom,0px));z-index:9;background:var(--sf);border:1px solid var(--ln);border-radius:14px;display:none;flex-direction:column;max-height:60vh;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+#chat.on{display:flex}
+#log{overflow-y:auto;padding:12px;flex:1;font-size:15px}
+#log p{margin:0 0 8px;padding:8px 10px;border-radius:8px;background:var(--acc-bg)}#log p.u{background:var(--ok-bg);text-align:right}
+#chat form{display:flex;gap:6px;padding:8px;border-top:1px solid var(--ln)}
+@media (prefers-reduced-motion:no-preference){section.on{animation:f .25s}@keyframes f{from{opacity:.4}to{opacity:1}}}
+</style>
+</head>
+<body>
+<header><div class="w"><h1>Rahasia Api di Balik Gerabah</h1><p>E-Modul STEM berbasis Etnosains: kalor, penyusutan, dan rancangan tungku dalam tradisi gerabah Kasongan, Bayat, dan Lombok.</p></div></header>
+<nav aria-label="Bagian modul"><div class="w" role="tablist">
+<button role="tab" data-t="beranda">Beranda</button><button role="tab" data-t="petunjuk">Petunjuk</button><button role="tab" data-t="materi">Materi</button><button role="tab" data-t="evaluasi">Evaluasi</button></div></nav>
+<main>
+
+<section id="beranda">
+<h2>Selamat datang</h2>
+<div class="card id">
+<div><b>Mata pelajaran</b>IPA / Fisika (terintegrasi STEM)</div><div><b>Fase / Kelas</b>Fase D, Kelas VII–VIII</div><div><b>Topik</b>Kalor dan perpindahannya</div><div><b>Alokasi</b>3 × 40 menit</div></div>
+<div class="card"><h3>Fenomena pemantik</h3>
+<p class="quote">Pengrajin gerabah tidak membakar tanah liat langsung di dalam bara. Mereka menjemurnya berhari-hari, menaikkan api pelan-pelan, lalu membiarkannya dingin sendiri. Mengapa semua langkah itu penting? Mengapa gerabah yang dibakar terlalu cepat bisa pecah?</p>
+<p><b>Driving question:</b> Bagaimana kita merancang proses pembakaran gerabah yang hemat bahan bakar tetapi tidak membuat gerabah retak?</p></div>
+<div class="card"><h3>Capaian pembelajaran</h3>
+<ul><li>Menjelaskan suhu, kalor, dan perpindahan kalor (konduksi, konveksi, radiasi) pada proses pembakaran gerabah.</li><li>Menghitung kalor yang dibutuhkan dengan <code>Q = m · c · ΔT</code>.</li><li>Menganalisis rancangan tungku tradisional dan mengusulkan perbaikan.</li><li>Menghargai kearifan lokal pengrajin sebagai pengetahuan yang bisa dijelaskan secara ilmiah.</li></ul></div>
+<div class="card"><h3>Peta konsep</h3><div class="map">
+<div class="c">Gerabah tradisional</div><div><b>S</b> Kalor, suhu, perpindahan kalor, perubahan fisika-kimia tanah liat</div><div><b>T</b> Termometer inframerah, simulasi, kamera ponsel</div><div><b>E</b> Rancangan tungku dan ventilasi</div><div><b>M</b> Q = m·c·ΔT, grafik suhu-waktu, persentase susut</div></div></div>
+
+<div class="ai"><span class="tag">AI Diagnostic & Greeting</span>
+<p id="greet">Halo! Aku Pak Kasongan, pendamping belajarmu. Siapa namamu, dan bagaimana suasana hatimu hari ini?</p>
+<input type="text" id="nm" placeholder="Tulis namamu..." aria-label="Nama"> 
+<div class="tabs" style="margin-top:8px" id="mood"><button aria-pressed="false">Semangat</button><button aria-pressed="false">Biasa saja</button><button aria-pressed="false">Agak lelah</button></div>
+<button class="btn" id="go">Mulai cek awal</button>
+<div id="diag" style="display:none"></div></div>
+
+<details class="card"><summary><b>Rancangan prompt sistem (untuk guru/pengembang)</b></summary>
+<p><code>Kamu adalah "Pak Kasongan", pendamping belajar siswa SMP. Sapa siswa, tanya nama dan suasana hati. Ajukan 3 pertanyaan pemantik tentang gerabah dan panas satu per satu. Jangan menilai; tentukan level awal (Pemula/Berkembang/Mahir) lalu sarankan sub-materi awal. Gunakan bahasa hangat dan singkat.</code></p></details>
+</section>
+
+<section id="petunjuk">
+<h2>Petunjuk penggunaan</h2>
+<div class="card"><h3>Untuk siswa</h3><ol><li>Isi cek awal di Beranda.</li><li>Pelajari empat sub-materi di Materi: Sains, Teknologi, Engineering, Matematika.</li><li>Kerjakan latihan di akhir tiap sub-materi. Jika bingung, tekan <b>Minta petunjuk</b>, bukan langsung jawaban.</li><li>Kerjakan Evaluasi, lalu ikuti arahan remedial.</li></ol></div>
+<div class="card"><h3>Untuk guru</h3><ul><li>Gunakan cek awal untuk mengelompokkan siswa (pemula, berkembang, mahir).</li><li>Latihan dapat dikerjakan berpasangan; tiap petunjuk yang dipakai bisa dicatat sebagai data zona perkembangan siswa.</li><li>Rubrik penilaian ada di bagian Evaluasi.</li></ul></div>
+<div class="card"><h3>Ikon dan estimasi waktu</h3><div class="sc"><table><tr><th>Ikon</th><th>Arti</th><th>Waktu</th></tr>
+<tr><td>🏠 Beranda</td><td>Fenomena, tujuan, cek awal</td><td>15 menit</td></tr><tr><td>📘 Petunjuk</td><td>Cara memakai modul</td><td>5 menit</td></tr><tr><td>🔬 Materi</td><td>Konsep STEM + latihan</td><td>70 menit</td></tr><tr><td>✅ Evaluasi</td><td>Soal HOTS + umpan balik</td><td>30 menit</td></tr><tr><td>💬 Tombol Tanya Pak Kasongan</td><td>Bantuan navigasi dan konsep</td><td>kapan saja</td></tr></table></div></div>
+<div class="ai"><span class="tag">AI Navigation & Study Coach</span>
+<p>Tekan tombol <b>💬 Tanya Pak Kasongan</b> di pojok kanan bawah. Cara bertanya yang baik:</p>
+<ul><li><b>Operasional:</b> "Di mana latihan sub-materi Matematika?"</li><li><b>Alur:</b> "Aku harus mulai dari mana?"</li><li><b>Konsep:</b> "Apa bedanya konduksi dan konveksi?" Pak Kasongan akan memberi pancingan dulu sebelum penjelasan.</li></ul>
+<p>Pak Kasongan tidak akan memberi jawaban latihan atau evaluasi secara langsung.</p></div>
+</section>
+
+<section id="materi">
+<h2>Materi STEM + Etnosains</h2>
+<div class="tabs" id="mtabs"></div>
+<div id="mbody"></div>
+</section>
+
+<section id="evaluasi">
+<h2>Evaluasi HOTS</h2>
+<p>Pilih jawaban yang paling tepat. Umpan balik akan menganalisis jalan pikirmu.</p>
+<div id="ev"></div>
+<div class="card"><h3>Rubrik penilaian</h3><div class="sc"><table>
+<tr><th>Indikator</th><th>Perlu bimbingan (1)</th><th>Cakap (2)</th><th>Mahir (3)</th></tr>
+<tr><td>Konsep sains</td><td>Istilah masih tertukar</td><td>Benar, penjelasan singkat</td><td>Benar dan menghubungkan sebab-akibat</td></tr>
+<tr><td>Penalaran matematis</td><td>Rumus belum tepat</td><td>Hitungan benar</td><td>Hitungan benar, satuan dan makna jelas</td></tr>
+<tr><td>Analisis rancangan</td><td>Hanya mendeskripsikan</td><td>Menemukan kelemahan</td><td>Mengusulkan perbaikan berdasar data</td></tr>
+<tr><td>Etnosains</td><td>Budaya dan sains terpisah</td><td>Menjelaskan praktik dengan sains</td><td>Menghargai dan mengevaluasi praktik</td></tr></table></div>
+<p>Skor 10–12: Mahir · 7–9: Cakap · ≤6: Perlu bimbingan (ulangi sub-materi yang disarankan).</p></div>
+</section>
+</main>
+
+<button id="fab" aria-expanded="false">💬 Tanya Pak Kasongan</button>
+<div id="chat" role="dialog" aria-label="AI Study Companion"><div id="log"><p>Halo! Tanyakan cara memakai modul atau konsep yang membingungkan. Aku akan memandu, bukan menjawab latihan.</p></div>
+<form id="cf"><input type="text" id="ci" placeholder="Ketik pertanyaan..." aria-label="Pertanyaan"><button class="btn" style="margin:0">Kirim</button></form></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Navigasi */
+function show(t){if(!$('#'+t))t='beranda';$$('section').forEach(s=>s.classList.toggle('on',s.id===t));$$('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));scrollTo(0,0)}
+$$('nav button').forEach(b=>b.onclick=()=>{location.hash=b.dataset.t});
+addEventListener('hashchange',()=>show(location.hash.slice(1)));show(location.hash.slice(1)||'beranda');
+
+/* Cek awal */
+const DQ=[
+{q:"Pengrajin menjemur gerabah beberapa hari sebelum dibakar. Menurutmu tujuannya?",o:["Agar warnanya lebih cerah","Agar air keluar pelan-pelan sehingga tidak retak saat dipanaskan","Agar tanah liat menjadi lebih panas"],a:1},
+{q:"Saat gerabah dibakar, panas dari bara sampai ke bagian dalam dinding gerabah melalui...",o:["Konduksi","Konveksi saja","Tidak ada perpindahan"],a:0},
+{q:"Dua pot sama berat, mana lebih lama panas bila kalor jenisnya berbeda?",o:["Yang kalor jenisnya lebih besar","Yang kalor jenisnya lebih kecil","Sama saja"],a:0}];
+let name='',mood='';
+$$('#mood button').forEach(b=>b.onclick=()=>{$$('#mood button').forEach(x=>x.setAttribute('aria-pressed',x===b));mood=b.textContent});
+$('#go').onclick=()=>{name=$('#nm').value.trim()||'Sahabat';
+ const m=mood==='Agak lelah'?'Tenang, kita pelan-pelan saja ya.':'Wah, kita mulai!';
+ $('#greet').textContent=`Hai ${name}! ${m} Jawab 3 pertanyaan pemantik ini. Tidak dinilai, hanya untuk mengenal pengetahuan awalmu.`;
+ const d=$('#diag');d.style.display='block';let sc=0,n=0;
+ d.innerHTML=DQ.map((x,i)=>`<div class="card"><b>${i+1}. ${x.q}</b>`+x.o.map((o,j)=>`<label class="o"><input type="radio" name="d${i}" value="${j}"> ${o}</label>`).join('')+`</div>`).join('')+`<button class="btn" id="dn">Lihat hasil cek awal</button><div class="fb" id="dr"></div>`;
+ $('#dn').onclick=()=>{sc=DQ.filter((x,i)=>{const c=$(`input[name=d${i}]:checked`);return c&&+c.value===x.a}).length;
+  const L=sc<=1?['Pemula','Mulai dari sub-materi Sains dan manfaatkan petunjuk bertingkat.']:sc===2?['Berkembang','Kamu sudah punya fondasi. Cermati Sains lalu lanjut ke Engineering.']:['Mahir','Kamu siap menantang diri. Langsung ke Engineering dan Matematika.'];
+  const r=$('#dr');r.className='fb show ok';r.innerHTML=`Skor ${sc}/3. Level awalmu: <b>${L[0]}</b>. ${L[1]}<br><button class="btn" onclick="location.hash='materi'">Mulai belajar</button>`}};
+
+/* Materi */
+const M=[
+{k:"Sains",t:"Kalor dan perubahan tanah liat",c:`<p>Tanah liat mengandung air. Saat dijemur, air menguap dari permukaan, lalu dari dalam. Bila dipanaskan terlalu cepat, air di dalam berubah menjadi uap dan menekan dinding hingga retak.</p><p>Panas berpindah dengan tiga cara: <b>konduksi</b> (lewat kontak, dari bara ke dinding), <b>konveksi</b> (aliran udara panas di dalam tungku), dan <b>radiasi</b> (pancaran panas dari api). Pada sekitar 500–600 °C terjadi perubahan kimia permanen pada mineral lempung sehingga gerabah tidak bisa kembali menjadi tanah liat.</p>`,
+ q:"Mengapa pengrajin menaikkan api secara bertahap pada awal pembakaran?",o:["Agar hemat waktu","Agar sisa air keluar sebagai uap perlahan dan dinding tidak pecah","Agar tanah liat berubah menjadi logam"],a:1,
+ h:["Bayangkan air di dalam pori-pori dinding tanah liat. Ke mana ia pergi saat dipanaskan?","Air yang menjadi uap volumenya jauh lebih besar. Apa yang terjadi bila uap terperangkap dalam dinding tebal?","Analogi: panci tertutup rapat di atas api besar. Jadi, pemanasan cepat atau pelan yang memberi uap waktu untuk keluar?"]},
+{k:"Teknologi",t:"Mengukur suhu dengan alat digital",c:`<p>Pengrajin tradisional menilai suhu dari warna bara: merah tua sekitar 600 °C, jingga sekitar 900 °C. Kini <b>termometer inframerah</b> dapat mengukur suhu tanpa kontak. Aplikasi lembar kerja (spreadsheet) dapat membuat grafik suhu-waktu, dan simulasi daring PhET "Energi Bentuk dan Perubahan" membantu melihat perpindahan kalor.</p><p>Teknologi tidak menggantikan pengalaman pengrajin, tetapi mengubahnya menjadi data yang bisa dibagikan.</p>`,
+ q:"Apa keunggulan termometer inframerah dibanding menilai suhu dari warna bara saja?",o:["Hasil objektif dan dapat dicatat untuk dibandingkan","Membuat tungku lebih panas","Menghilangkan kebutuhan pengalaman pengrajin"],a:0,
+ h:["Pikirkan: dua orang menilai warna bara yang sama, apakah pasti sepakat?","Kata kunci: angka, catatan, dibandingkan.","Pilih opsi yang menyebut data. Opsi lain mengubah tungku atau meniadakan pengrajin, padahal alat hanya mengukur."]},
+{k:"Engineering",t:"Merancang tungku dan ventilasi",c:`<p>Tungku terbuka (pembakaran di tanah) kehilangan banyak panas lewat radiasi dan konveksi ke udara luar. Tungku tertutup dengan dinding bata menahan panas dan menyediakan lubang udara (ventilasi) agar api tetap mendapat oksigen.</p><p><b>Siklus rekayasa:</b> tanya masalah, imajinasikan, rancang, buat, uji, perbaiki. Kriteria rancangan tungku: panas merata, hemat kayu, dan gerabah tidak retak.</p>`,
+ q:"Sebuah tungku boros kayu karena panas banyak lolos ke luar. Perbaikan yang paling tepat?",o:["Menambah lubang di dinding","Menebalkan dinding dengan bahan penahan panas dan mengatur ventilasi seperlunya","Mengganti kayu dengan kayu basah"],a:1,
+ h:["Apa yang perlu dikurangi: panas masuk atau panas keluar?","Dinding yang menahan panas bekerja seperti jaket. Dan ventilasi dibutuhkan untuk apa?","Lubang tambahan memperbesar kehilangan panas, kayu basah memboroskan panas untuk menguapkan air. Tinggal satu opsi yang menahan panas."]},
+{k:"Matematika",t:"Menghitung kalor dan penyusutan",c:`<p>Kalor yang dibutuhkan: <code>Q = m · c · ΔT</code>. Contoh: sebuah kendi bermassa 2 kg dipanaskan dari 30 °C ke 630 °C. Dengan kalor jenis tanah liat ±900 J/kg°C: Q = 2 × 900 × 600 = <b>1.080.000 J</b> (1,08 MJ).</p><p>Penyusutan: kendi basah tinggi 20 cm menjadi 18 cm setelah dibakar. Susut = (20−18)/20 × 100% = <b>10%</b>. Pengrajin memakai pola ini untuk menentukan ukuran cetakan.</p>`,
+ q:"Sebuah pot 1 kg dipanaskan dari 30 °C ke 330 °C (c = 900 J/kg°C). Berapa kalor yang dibutuhkan?",o:["270.000 J","297.000 J","2.700 J"],a:0,
+ h:["Tulis dulu yang diketahui: m, c, dan ΔT. Apa itu ΔT?","ΔT = suhu akhir − suhu awal = 330 − 30 = 300 °C.","Kalikan: 1 × 900 × 300. Hitung perlahan dan perhatikan jumlah nol."]}];
+let cur=0;const hs={};
+function rm(){$('#mtabs').innerHTML=M.map((m,i)=>`<button aria-pressed="${i===cur}" data-i="${i}">${m.k}</button>`).join('');
+ $$('#mtabs button').forEach(b=>b.onclick=()=>{cur=+b.dataset.i;rm()});
+ const m=M[cur];hs[cur]=hs[cur]||0;
+ $('#mbody').innerHTML=`<div class="card"><h3>${m.k}: ${m.t}</h3>${m.c}</div>
+ <div class="card"><b>Latihan pemahaman</b><p>${m.q}</p>`+m.o.map((o,j)=>`<label class="o"><input type="radio" name="p" value="${j}"> ${o}</label>`).join('')+
+ `<button class="btn" id="ck">Periksa</button><button class="btn ghost" id="hn">Minta petunjuk</button><div class="fb" id="pf"></div><div id="hl"></div>
+ <div class="ai"><span class="tag">AI Gradual Release</span> Petunjuk bertahap: pancingan, lalu analogi, lalu langkah terarah. Jawaban akhir tidak diberikan langsung.</div></div>`;
+ const hl=$('#hl');for(let i=0;i<hs[cur];i++)hl.innerHTML+=`<div class="hint"><b>Petunjuk ${i+1}:</b> ${m.h[i]}</div>`;
+ $('#ck').onclick=()=>{const c=$('input[name=p]:checked'),f=$('#pf');if(!c){f.className='fb show no';f.textContent='Pilih satu jawaban dulu.';return}
+  if(+c.value===m.a){f.className='fb show ok';f.textContent='Tepat! Kamu bernalar dengan baik. Lanjut ke sub-materi berikutnya.'}
+  else{f.className='fb show no';f.textContent=hs[cur]<3?'Belum tepat, dan itu wajar. Tekan "Minta petunjuk" untuk dipandu selangkah demi selangkah.':'Belum tepat. Baca ulang bagian materi di atas, lalu coba lagi dengan petunjuk 1–3.'}};
+ $('#hn').onclick=()=>{if(hs[cur]<3){hs[cur]++;rm()}else{$('#pf').className='fb show no';$('#pf').textContent='Semua petunjuk sudah dibuka. Baca ulang materi, lalu coba lagi.'}}}
+rm();
+
+/* Evaluasi */
+const E=[
+{q:"Dua pengrajin membakar kendi identik. A menaikkan api perlahan selama 3 jam, B langsung api besar. Kendi B retak. Penjelasan ilmiah terbaik?",o:["Api besar membuat tanah liat lebih keras sehingga rapuh","Air terperangkap berubah jadi uap bertekanan sebelum sempat keluar dari dinding","Kendi B menerima kalor lebih sedikit"],a:1,
+ mis:["Miskonsepsi: kamu mengaitkan retak dengan kekerasan, padahal retak terjadi karena tekanan uap air di dalam dinding, bukan karena tanah liatnya terlalu keras.","","Miskonsepsi: api besar justru memberi kalor lebih banyak dalam waktu singkat. Masalahnya laju pemanasan, bukan jumlah kalor."],r:0},
+{q:"Kendi 3 kg dengan c = 900 J/kg°C dipanaskan dari 30 °C ke 530 °C. Kayu menghasilkan 15.000 J/g, tetapi hanya 20% kalor yang terserap kendi. Massa kayu minimal?",o:["90 g","450 g","1.350 g"],a:1,
+ mis:["Kamu menghitung kalor yang terserap saja (Q = 1.350.000 J) lalu membagi tanpa memperhitungkan efisiensi 20%. Yang dibutuhkan lebih banyak.","","Kamu kemungkinan keliru menghitung ΔT atau membalik efisiensi. Cek: Q = 3×900×500 = 1.350.000 J, kayu yang dibutuhkan = Q ÷ 0,2 ÷ 15.000."],r:3},
+{q:"Tungku tertutup dibandingkan tungku terbuka. Data: tungku tertutup menghabiskan 40% lebih sedikit kayu tetapi suhu bagian atas 150 °C lebih rendah, gerabah atas kurang matang. Usulan terbaik?",o:["Kembali ke tungku terbuka","Pertahankan tungku tertutup, atur ulang ventilasi dan susunan gerabah agar panas merata","Tambahkan lebih banyak kayu pada tungku tertutup"],a:1,
+ mis:["Miskonsepsi: mengabaikan data penghematan 40%. Rekayasa memperbaiki kelemahan, bukan membuang keseluruhan rancangan.","","Menambah kayu menghilangkan keunggulan hemat dan tidak menyelesaikan penyebab panas tidak merata."],r:2}];
+const link=["Sains (kalor dan perubahan tanah liat)","Matematika (Q = m·c·ΔT dan efisiensi)","Engineering (tungku dan ventilasi)","Sains"];
+$('#ev').innerHTML=E.map((x,i)=>`<div class="card"><span class="tag">HOTS ${i+1}</span><p><b>${x.q}</b></p>`+x.o.map((o,j)=>`<label class="o"><input type="radio" name="e${i}" value="${j}"> ${o}</label>`).join('')+
+ `<button class="btn" data-e="${i}">Kirim jawaban</button><div class="fb"></div><div class="ai" style="display:none"></div></div>`).join('');
+$$('#ev button').forEach(b=>b.onclick=()=>{const i=+b.dataset.e,x=E[i],card=b.parentElement,c=$(`input[name=e${i}]:checked`),f=$('.fb',card);
+ if(!c)return;f.classList.add('show');
+ if(+c.value===x.a){f.className='fb show ok';f.textContent='Benar! Penalaranmu tepat.';$('.ai',card).style.display='none'}
+ else{f.className='fb show no';f.innerHTML=x.mis[c.value];const ai=$('.ai',card);ai.style.display='block';
+  const k=x.r;ai.innerHTML=`<span class="tag">Remedial terarah</span> Pelajari ulang sub-materi <b>${link[k]}</b>. <button class="btn ghost" data-m="${k===3?0:k}">Buka sub-materi</button>`;
+  $('button',ai).onclick=e=>{cur=+e.target.dataset.m;rm();location.hash='materi'}}});
+
+/* Pendamping AI (berbasis aturan) */
+const R=[[/mulai|alur|mana/,"Mulai dari Beranda (cek awal), lalu Materi: Sains → Teknologi → Engineering → Matematika, terakhir Evaluasi."],
+[/latihan|soal/,"Latihan ada di bagian bawah tiap sub-materi pada tab Materi. Tombol 'Minta petunjuk' memberi bantuan bertahap."],
+[/konduksi|konveksi|radiasi/,"Pancingan: bara menyentuh dinding (kontak), udara panas naik di tungku (mengalir), dan hangat terasa dari jauh (tanpa medium). Cocokkan tiga situasi itu dengan tiga istilah. Mana yang mana?"],
+[/rumus|hitung|kalor/,"Mulai dengan menuliskan yang diketahui: massa, kalor jenis, suhu awal dan akhir. Lalu tanya dirimu: ΔT itu selisih apa?"],
+[/waktu|lama/,"Perkiraan total sekitar 120 menit: Beranda 15, Petunjuk 5, Materi 70, Evaluasi 30."],
+[/retak|pecah/,"Pancingan: apa yang terjadi pada air di dalam dinding saat suhu naik cepat? Bayangkan uapnya mencari jalan keluar."]];
+$('#fab').onclick=()=>{const o=$('#chat').classList.toggle('on');$('#fab').setAttribute('aria-expanded',o)};
+$('#cf').onsubmit=e=>{e.preventDefault();const v=$('#ci').value.trim();if(!v)return;const L=$('#log');
+ L.insertAdjacentHTML('beforeend',`<p class="u"></p>`);L.lastChild.textContent=v;
+ const m=R.find(r=>r[0].test(v.toLowerCase()));
+ L.insertAdjacentHTML('beforeend',`<p>${m?m[1]:'Menarik! Coba ceritakan dulu bagian mana yang kamu pahami, lalu kita cari celahnya bersama. Kamu juga bisa membuka tab Materi.'}</p>`);
+ $('#ci').value='';L.scrollTop=L.scrollHeight};
+</script>
+</body>
+</html>
